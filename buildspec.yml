@@ -1,4 +1,3 @@
-version: 0.2
 phases:
 
   build:
@@ -9,9 +8,9 @@ phases:
 
       - "echo Building the Docker image..."
 
-      - "docker build -t webserver ."
+      - "docker build -t web ."
 
-      - "docker tag mywebserver:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
+      - "docker tag web:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
 
   post_build:
 
@@ -31,3 +30,4 @@ phases:
 
       - "$(aws ecr get-login --region us-east-1)"
 
+version: 0.1
