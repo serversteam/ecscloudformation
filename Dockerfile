@@ -23,6 +23,7 @@ RUN apt-get install php-mysql -y
 RUN mkdir /var/www/html/laravel
 RUN apt-get update -y
 COPY app/ /app/
+COPY test.txt /var/www/html/
 RUN chmod +x /app/init.sh
 RUN apt-get install -y composer
 RUN apt-get install -y php-mbstring  php-xml php-curl
