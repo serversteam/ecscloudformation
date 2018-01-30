@@ -1,3 +1,4 @@
+version: 0.2
 phases:
 
   build:
@@ -30,4 +31,3 @@ phases:
 
       - "$(aws ecr get-login --region us-east-1)"
 
-version: 0.1
