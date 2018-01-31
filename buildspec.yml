@@ -22,11 +22,11 @@ phases:
 
       - "docker push 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
       
-      - printf '[{"name":"mywebserver","imageUri":"%s"}]' 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest > imagedefinitions.json
+#      - printf '[{"name":"mywebserver","imageUri":"%s"}]' 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest > imagedefinitions.json
 
-artifacts:
-    files:
-      - imagedefinitions.json
+#artifacts:
+#    files:
+#      - imagedefinitions.json
     pre_build:
      commands:
 
