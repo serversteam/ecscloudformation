@@ -21,16 +21,17 @@ phases:
       - "echo Pushing the Docker image..."
 
       - "docker push 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
-   
-      - printf '[{"name":"mywebserver","imageUri":"%s"}]' 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest > imagedefinitions.json
-     
+
+      - printf '[{"name":"mywebserver","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+
   pre_build:
-
+     
     commands:
-
       - "echo Logging in to Amazon ECR..."
-
+  
       - "$(aws ecr get-login --region us-east-1)"
+   
+      - REPOSITORY_URI=980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver
 
 artifacts:
     files:
