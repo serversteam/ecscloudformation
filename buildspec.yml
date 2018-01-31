@@ -12,8 +12,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t web . 
-      - docker tag web:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest
+      - docker build -t webserver . 
+      - docker tag webserver:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest
   post_build:
     commands:
       - echo Build completed on `date`
