@@ -21,7 +21,6 @@ phases:
       - "echo Pushing the Docker image..."
 
       - "docker push 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
-- "printf '[{"name":"hello-world","imageUri":"%s"}]' 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest > imagedefinitions.json"
 
   pre_build:
 
@@ -32,6 +31,6 @@ phases:
       - "$(aws ecr get-login --region us-east-1)"
 
   artifacts:
-    files: imagedefinitions.json
+    files: mywebtask.json
 
 version: 0.2
