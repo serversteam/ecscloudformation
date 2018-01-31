@@ -24,9 +24,6 @@ phases:
 
       - printf '[{"name":"myweb","imageUri":"980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"}]' > imagedefinitions.json
 
-artifacts:
-    files:
-      - imagedefinitions.json
 
     pre_build:
      
