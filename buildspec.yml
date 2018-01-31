@@ -1,5 +1,13 @@
 phases:
 
+  pre_build:
+
+   commands:
+
+       - "echo Logging in to Amazon ECR..."
+
+       - "$(aws ecr get-login --region us-east-1)"
+
   build:
 
     commands:
@@ -24,13 +32,11 @@ phases:
 
       - printf '[{"name":"myweb","imageUri":"980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"}]' > imagedefinitions.json
 
+artifacts:
+    files:
+      - '**/*'
+    base-directory: 'output'
+    discard-paths: yes
+  
+version: 0.2
 
-  pre_build:
-     
-   commands:
-
-       - "echo Logging in to Amazon ECR..."
-
-       - "$(aws ecr get-login --region us-east-1)"
-
-version: 0.2    
