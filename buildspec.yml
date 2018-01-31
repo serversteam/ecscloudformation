@@ -34,7 +34,7 @@ phases:
 
 artifacts:
     files:
-      - '**/*'
+      - imagedefinitions.json 
     discard-paths: yes
   
 version: 0.2
