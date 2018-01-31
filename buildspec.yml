@@ -21,9 +21,9 @@ phases:
       - "echo Pushing the Docker image..."
 
       - "docker push 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
-      
-   pre_build:
-  
+
+  pre_build:
+
     commands:
 
       - "echo Logging in to Amazon ECR..."
