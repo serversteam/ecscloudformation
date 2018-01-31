@@ -1,33 +1,26 @@
+version: 0.2
+
 phases:
-
-  build:
-
-    commands:
-
-      - "echo Build started on `date`"
-
-      - "echo Building the Docker image..."
-
-      - "docker build -t web ."
-
-      - "docker tag web:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
-
-  post_build:
-
-    commands:
-
-      - "echo Build completed on `date`"
-
-      - "echo Pushing the Docker image..."
-
-      - "docker push 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
-
   pre_build:
-
     commands:
-
-      - "echo Logging in to Amazon ECR..."
-
-      - "$(aws ecr get-login --region us-east-1)"
-
-version: 0.1
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - aws ecr get-login --region us-east-1 --no-include-email
+      - REPOSITORY_URI=980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver
+      - IMAGE_TAG=latest
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"hello-world","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+    files: imagedefinitions.json
