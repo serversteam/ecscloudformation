@@ -25,9 +25,9 @@ phases:
       - printf '[{"name":"myweb","imageUri":"980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"}]' > imagedefinitions.json
 
 
-    pre_build:
+  pre_build:
      
-     commands:
+   commands:
 
        - "echo Logging in to Amazon ECR..."
 
