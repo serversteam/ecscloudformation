@@ -32,4 +32,8 @@ phases:
 
       - "$(aws ecr get-login --region us-east-1)"
 
+artifacts:
+    files:
+      - imagedefinitions.json
+
 version: 0.2
