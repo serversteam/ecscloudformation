@@ -2,10 +2,8 @@ FROM ubuntu:16.04
 
 #update all packages
 RUN apt-get update && \
-    apt-get -y dist-upgrade && \
     apt-get -y autoremove && \
     apt-get clean
-RUN apt-get -y update
 RUN apt-get install -y apache2
 
 
