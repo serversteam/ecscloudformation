@@ -8,9 +8,9 @@ phases:
 
       - "echo Building the Docker image..."
 
-      - "docker build -t web ."
+      - "docker build -t webserver ."
 
-      - "docker tag web:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
+      - "docker tag mywebserver:latest 980424229685.dkr.ecr.us-east-1.amazonaws.com/mywebserver:latest"
 
   post_build:
 
@@ -29,6 +29,6 @@ artifacts:
     pre_build:
       commands:
         - "echo Logging in to Amazon ECR..."
-        - "$(aws ecr get-login --region us-east-1)"
+        - "$(aws ecr get-login --no-include-email --region us-east-1)"
 
 version: 0.2
