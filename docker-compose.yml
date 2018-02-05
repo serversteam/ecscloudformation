@@ -1,0 +1,26 @@
+version: '2'
+services:
+  node:
+    image: wh01server/node
+    cpu_shares: 100
+    mem_limit: 524288000
+    ports:
+      - "3000:3000"
+    links:
+      - redis
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: tutorial-node
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: node
+  redis:
+    image: redis
+    ports:
+        - "6379:6379"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: tutorial-redis
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: redis
