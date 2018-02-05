@@ -6,8 +6,6 @@ phases:
 
        - "echo Logging in to Amazon ECR..."
 
-       - "$(aws ecr get-login --region us-east-1)"
-     
        - "$(ecs-cli configure --cluster ec2-tutorial --region us-east-1 --default-launch-type EC2 --config-name ec2-tutorial)"
 
        - "$(ecs-cli configure profile --access-key AKIAIHCU4FHM45LIXCMQ --secret-key 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 --profile-name  ec2-tutorial)"
