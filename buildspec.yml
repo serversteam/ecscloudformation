@@ -14,7 +14,7 @@ phases:
 
     commands:
 
-      - "$(ecs-cli up --keypair mykey --capability-iam --size 1 --vpc vpc-4cb65837 --subnets subnet-853318e1 --instance-type t2.small --force)"
+      - "$(ecs-cli up --keypair mykey --capability-iam --size 1 --vpc vpc-2c796b55 --subnets subnet-1d798e56 --instance-type t2.small --force)"
 
       - "$(ecs-cli compose --file docker-compose.yml up --create-log-groups)"
 
