@@ -8,7 +8,7 @@ phases:
 
        - "$(ecs-cli configure --cluster ec2-tutorial --region us-east-1 --default-launch-type EC2 --config-name ec2-tutorial)"
 
-       - "$(ecs-cli configure profile --access-key AKIAIHCU4FHM45LIXCMQ --secret-key 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 --profile-name  ec2-tutorial)"
+       - "$(ecs-cli configure profile --access-key AKIAIYL5SPAFJWOJCPIQ --secret-key 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 --profile-name  ec2-tutorial)"
 
   build:
 
