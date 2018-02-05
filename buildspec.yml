@@ -1,0 +1,29 @@
+phases:
+
+  pre_build:
+
+   commands:
+
+       - "echo Logging in to Amazon ECR..."
+
+       - "$(aws ecr get-login --region us-east-1)"
+     
+       - "$(ecs-cli configure --cluster ec2-tutorial --region us-east-1 --default-launch-type EC2 --config-name ec2-tutorial)"
+
+       - "$(ecs-cli configure profile --access-key AKIAIHCU4FHM45LIXCMQ --secret-key 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 --profile-name  ec2-tutorial)"
+
+  build:
+
+    commands:
+
+      - "$(ecs-cli up --keypair mykey --capability-iam --size 2 --instance-type t2.small --force)"
+
+      - "$(ecs-cli compose --file docker-compose.yml up --create-log-groups)"
+
+  post_build:
+
+    commands:
+
+      - "echo Logging in to Amazon ECR..."
+     
+version: 0.2
