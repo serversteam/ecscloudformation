@@ -17,6 +17,7 @@ Create a cluster configuration:   (ec2-tutorial is cluster name please change if
 step2.Create a profile using your access key and secret key:
 
 please copy your AWS access-key and secret-key from IAM.
+
 #ecs-cli configure profile --access-key AKIAIYL5SPAFJWOJCPIQ --secret-key TcTIGEYThmhWipLZN4ZwEsN7YC2TkQrC2K94fiGi --profile-name  ec2-tutorial
 
 Create Your Cluster
