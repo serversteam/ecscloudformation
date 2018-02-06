@@ -3,7 +3,13 @@ I have ran Docker compose file in AWS ECS with cloudformation i used AWS ECS-CLI
 I have tried to found other solution to run docker-compose on AWS ECS but no other solution found so i used AWS ECS cli option to deploy docker-compose on ECS.
 Below are steps to deploy docker-compose using cloudformation on ECS cluster.
 
+Clone this repo into your system 
+#git clone https://github.com/serversteam/ecscloudformation.git 
+change directory to ecscloudformation
+# cd ecscloudformation
+
 Install ecs cli in server where your docker copmose file placed.
+
 
 Step 1: Configure the ECS CLI
 The ECS CLI requires credentials in order to make API requests on your behalf. It can pull credentials from environment variables, an AWS profile, or an Amazon ECS profile. For more information see Configuring the Amazon ECS CLI.
@@ -18,7 +24,7 @@ step2.Create a profile using your access key and secret key:
 
 please copy your AWS access-key and secret-key from IAM.
 
-#ecs-cli configure profile --access-key AKIAIYL5SPAFJWOJCPIQ --secret-key TcTIGEYThmhWipLZN4ZwEsN7YC2TkQrC2K94fiGi --profile-name  ec2-tutorial
+#ecs-cli configure profile --access-key access-key --secret-key secret-key --profile-name  ec2-tutorial
 
 Create Your Cluster
 
@@ -44,54 +50,9 @@ Cluster creation succeeded.
 Deploy your docker compose in ECS : 
 Change directory where your docker-compose file placed. 
 
-#ecs-cli compose --file docker-compose.yml up --create-log-groups
+#ecs-cli compose --file docker-compose.yml up --create-log-group
 
-
-
-
-==============================================compose file===============================
-version: '2'
-services:
-  node:
-    image: wh01server/node
-    cpu_shares: 100
-    mem_limit: 524288000
-    ports:
-      - "3000:3000"
-    links:
-      - redis
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: tutorial-node
-        awslogs-region: us-east-1
-        awslogs-stream-prefix: node
-  redis:
-    image: redis
-    ports:
-        - "6379:6379"
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: tutorial-redis
-        awslogs-region: us-east-1
-        awslogs-stream-prefix: redis
-  azure-vote-front:
-    image: wh01server/azure
-    container_name: azure-vote-front
-    environment:
-      REDIS: redis
-    ports:
-        - "8080:80"
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: tutorial-azure
-        awslogs-region: us-east-1
-        awslogs-stream-prefix: azure
-		
-==================================================
-
+This will take few mins to deploy app on ECS. 
 
 
 To check container up or not
