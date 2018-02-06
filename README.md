@@ -3,6 +3,8 @@ I have ran Docker compose file in AWS ECS with cloudformation i used AWS ECS-CLI
 I have tried to found other solution to run docker-compose on AWS ECS but no other solution found so i used AWS ECS cli option to deploy docker-compose on ECS.
 Below are steps to deploy docker-compose using cloudformation on ECS cluster.
 
+cloudformation template is in repo  with name : ecs.template
+
 Clone this repo into your system 
 
 #git clone https://github.com/serversteam/ecscloudformation.git 
