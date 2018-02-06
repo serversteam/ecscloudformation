@@ -47,6 +47,8 @@ Change directory where your docker-compose file placed.
 #ecs-cli compose --file docker-compose.yml up --create-log-groups
 
 
+
+
 ==============================================compose file===============================
 version: '2'
 services:
@@ -89,7 +91,10 @@ services:
         awslogs-stream-prefix: azure
 		
 ==================================================
-to check container up or not
+
+
+
+To check container up or not
 	
 #ecs-cli ps 
 root@ip-172-31-52-46:/opt/node-redis-docker# ecs-cli ps
