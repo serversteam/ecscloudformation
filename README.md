@@ -64,10 +64,18 @@ This will take few mins to deploy app on ECS.
 To check container up or not
 	
 #ecs-cli ps 
-root@ip-172-31-52-46:/opt/node-redis-docker# ecs-cli ps
+
+
+# ecs-cli ps
+
+
+
 Name                                                   State    Ports                        TaskDefinition
+
 a2539d1a-047a-41c3-aaf7-ef113f1741dc/azure-vote-front  RUNNING  34.199.25.45:8080->80/tcp    node-redis-docker:2
+
 a2539d1a-047a-41c3-aaf7-ef113f1741dc/node-app          RUNNING  34.199.25.45:3000->3000/tcp  node-redis-docker:2
+
 a2539d1a-047a-41c3-aaf7-ef113f1741dc/redis             RUNNING  34.199.25.45:6379->6379/tcp  node-redis-docker:2
 
 
