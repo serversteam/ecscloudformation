@@ -4,14 +4,18 @@ I have tried to found other solution to run docker-compose on AWS ECS but no oth
 Below are steps to deploy docker-compose using cloudformation on ECS cluster.
 
 Clone this repo into your system 
+
 #git clone https://github.com/serversteam/ecscloudformation.git 
+
 change directory to ecscloudformation
+
 # cd ecscloudformation
 
 Install ecs cli in server where your docker copmose file placed.
 
 
 Step 1: Configure the ECS CLI
+
 The ECS CLI requires credentials in order to make API requests on your behalf. It can pull credentials from environment variables, an AWS profile, or an Amazon ECS profile. For more information see Configuring the Amazon ECS CLI.
 
 Create an ECS CLI Configuration
