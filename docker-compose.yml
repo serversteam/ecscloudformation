@@ -24,3 +24,16 @@ services:
         awslogs-group: tutorial-redis
         awslogs-region: us-east-1
         awslogs-stream-prefix: redis
+  azure-vote-front:
+    image: wh01server/azure
+    container_name: azure-vote-front
+    environment:
+      REDIS: redis
+    ports:
+        - "8080:80"
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: tutorial-azure
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: azure
